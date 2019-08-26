@@ -96,6 +96,13 @@ var foo = function () {
             //i传给了x，并且锁在内存中，所以不会变
         }
 ```        
+```
+for (let i = 0; i < 3; i++) {    //let具有独立的块级作用域
+            setTimeout(function () {
+                console.log(i);  // 0 1 2
+            }, 1000);
+        }
+```
 
 
 
