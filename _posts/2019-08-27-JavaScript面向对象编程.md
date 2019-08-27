@@ -129,4 +129,6 @@ valueOf() : 返回指定对象的原始值。
         console.log(Object.prototype.toString.call(new Date)); //'[object Date]'
         console.log(Object.prototype.toString.call(new RegExp)); //'[object RegExp]'
 ```
-拷贝继承 : 属性通过 : 父类.call()  方法通过 : 对象拷贝 (  for in ,  Object.assign(子类 , 父类) , ...  )  
+拷贝继承  
+属性 : 父类.call()  
+方法 : 对象拷贝 ( for in ,  Object.assign(子类 , 父类) , ...(展开运算符)  )  
