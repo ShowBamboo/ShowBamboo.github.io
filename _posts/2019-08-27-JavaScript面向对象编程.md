@@ -25,7 +25,7 @@ tags:                               #标签
     var b = a.slice();
 ```
 针对对象的时候： 常见的浅拷贝:3种  深拷贝:2种  
-浅拷贝 : copy() -> for in 、  Object.assign()、 ...展开运算符  
+浅拷贝 : copy() -> for in (都可以针对),  Object.assign (针对对象),  ... (都可以针对)  
 ```
     function copy(obj){   //浅拷贝
         var result = {};
