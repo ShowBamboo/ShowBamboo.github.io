@@ -58,7 +58,7 @@ tags:                               #标签
 #### 2.exec()
 正则去字符串中匹配，把匹配到的结果返回一个数组，如果匹配不到结果就返回null。  
 写法: 正则.exec(字符串)  
-和match的区别 :exec()不支持 g 修饰符不支持 g 修饰符  
+和match的区别 :exec()不支持 g 修饰符  
 ```
     var str = 'hello world';
     var re = /o/g;
