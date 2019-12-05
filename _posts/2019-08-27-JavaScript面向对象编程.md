@@ -86,7 +86,7 @@ instanceof : 左边是对象，右边是构造函数。对象是否在构造函�
         console.log(f instanceof Bar); //true
         console.log(f instanceof Object); //true
 ```
-in : 左边是一个属性或方法 , 右边是一个对象 , 判断属性或方法是否属性这个对象  
+in : 左边是一个属性或方法 , 右边是一个对象 , 判断属性或方法是否属于这个对象  
 ```
         function Foo() {
             this.username = 'xiaoming';
