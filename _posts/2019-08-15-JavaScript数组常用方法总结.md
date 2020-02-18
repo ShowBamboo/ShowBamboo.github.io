@@ -170,7 +170,7 @@ var result2 = arr.reduceRight(function (n1, n2) {
 console.log(result2); //-34  即8-24-2-11-5
 ```
 #### 总结
-不能修改原数组的方法：join、concat、slice、map、filte...  
+不能修改原数组的方法：join、concat、slice、map、filter...  
 可以修改原数组的方法：push、pop、unshift、shift、splice、reverse、sort  
 
 
