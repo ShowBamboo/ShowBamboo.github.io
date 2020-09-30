@@ -19,22 +19,22 @@ tags: #标签
 
 ```
 function foo() {
-            var a = 10;
-            function bar() {   //这个函数叫做闭包
-                console.log(a);
-            }
-        }
+    var a = 10;
+    function bar() {   //这个函数叫做闭包
+        console.log(a);
+    }
+}
 ```
 
 ```
 var foo = function () {
-            var a = 10;
-            return function () {
-                console.log(a);
-            };
+    var a = 10;
+    return function () {
+        console.log(a);
+    };
 
-        }();     //return出来的是一个函数表达式，可以在后面接小括号直接调用。
-        foo();   //10  利用闭包可以在函数外部进行调用。
+}();     //return出来的是一个函数表达式，可以在后面接小括号直接调用。
+foo();   //10  利用闭包可以在函数外部进行调用。
 ```
 
 闭包有什么好处呢？  
@@ -45,28 +45,28 @@ var foo = function () {
 
 ```
 var foo = function () {
-            var a = 10;
-            a++;
-            console.log(a);
-        };
-        foo();  //11
-        foo();  //11
-        foo();  //11  每调用一次函数，a都会被重新赋值为10
+    var a = 10;
+    a++;
+    console.log(a);
+};
+foo();  //11
+foo();  //11
+foo();  //11  每调用一次函数，a都会被重新赋值为10
 ```
 
 我想让 a 值累加，又是一个局部变量，该怎么做呢？对了，闭包可以做到。
 
 ```
- var foo = function () {
-            var a = 10;
-            return function () {
-                a++;
-                console.log(a);
-            };
-        }();  //此时foo是函数执行完的返回值，即return后的闭包
-        foo();  //11
-        foo();  //12
-        foo();  //13
+var foo = function () {
+    var a = 10;
+    return function () {
+        a++;
+        console.log(a);
+    };
+}();  //此时foo是函数执行完的返回值，即return后的闭包
+foo();  //11
+foo();  //12
+foo();  //13
 ```
 
 ### 2.匿名函数自执行
@@ -74,46 +74,46 @@ var foo = function () {
 > 匿名函数，顾名思义指的是没有名字的函数。（没有函数名）
 
 ```
-  function () {   //错误写法，会报错！默认情况下，程序认为没有名字的函数是函数声明写法
-            console.log(123);
-        }();
+function () {   //错误写法，会报错！默认情况下，程序认为没有名字的函数是函数声明写法
+    console.log(123);
+}();
 ```
 
 可以通过以下方法转化为函数表达式  
 在 function 前面加！、+、-、~或者把函数用（）包起来都可以将函数声明转换成函数表达式，我们一般用（）把函数声明包起来。
 
 ```
- (function () {
-            console.log(123);
-        })();
+(function () {
+    console.log(123);
+})();
 ```
 
 可以配合闭包用来保存状态，下面是一道很经典的题。
 
 ```
- for (var i = 0; i < 3; i++) {
-            setTimeout(function () {
-                console.log(i);  // 3 3 3
-                //在执行到这一行时，发现匿名函数里没有i，然后向往外部作用域找，然后找到的其实是for循环执行完了的i，也就是2++，3
-            }, 1000);
-        }
+for (var i = 0; i < 3; i++) {
+    setTimeout(function () {
+        console.log(i);  // 3 3 3
+        //在执行到这一行时，发现匿名函数里没有i，然后向往外部作用域找，然后找到的其实是for循环执行完了的i，也就是2++，3
+    }, 1000);
+}
 ```
 
 ```
- for (var i = 0; i < 3; i++) {
-            (function (x) {
-                setTimeout(function () {
-                    console.log(x);  // 0 1 2
-                }, 1000);
-            })(i)
-            //i传给了x，并且锁在内存中，所以不会变
-        }
+for (var i = 0; i < 3; i++) {
+    (function (x) {
+        setTimeout(function () {
+            console.log(x);  // 0 1 2
+        }, 1000);
+    })(i)
+    //i传给了x，并且锁在内存中，所以不会变
+}
 ```
 
 ```
 for (let i = 0; i < 3; i++) {    //let具有独立的块级作用域
-            setTimeout(function () {
-                console.log(i);  // 0 1 2
-            }, 1000);
-        }
+    setTimeout(function () {
+        console.log(i);  // 0 1 2
+    }, 1000);
+}
 ```
